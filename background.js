@@ -30,6 +30,27 @@ window.addEventListener("click",(event)=>{
 })
 
 colorinput.addEventListener("input",()=>{
-    bodybackground.style.background=colorinput.value;
+    const background = colorinput.value;
+    // bodybackground.style.background=colorinput.value;
+    bodybackground.style.background=background;
+
+    localStorage.setItem("setbackgroundcolor",background);
+
 })
+
+
+
+
+
+const checkcolorandget = ()=>{
+    const getbackgroundcolor = localStorage.getItem("setbackgroundcolor");
+
+    if(getbackgroundcolor){
+        bodybackground.style.background=getbackgroundcolor;
+        colorinput.value=getbackgroundcolor;
+    }
+
+}
+
+checkcolorandget();
 
