@@ -15,7 +15,7 @@
 
 }
 .backcontain{
-    width: 15%;
+    min-width: 15%;
     
     position: absolute;
     right: 0.8rem;
@@ -72,7 +72,7 @@
 }
 
 .backinputcolor input{
-    width: 8.5rem;
+    min-width: 8.5rem;
     height:2.7rem;
     /* margin-bottom: 1rem;
     margin-top: 0.2em; */
