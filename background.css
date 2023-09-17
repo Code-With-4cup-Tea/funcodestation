@@ -87,3 +87,14 @@
     transform: rotate(180deg);
     transition:transform 1s;
 }
+
+.bodybackground{
+
+    background-image: url("images/1.jpg");
+   background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
