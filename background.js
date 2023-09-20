@@ -40,7 +40,8 @@ colorinput.addEventListener("input",()=>{
 
 
 
-
+//nichay check hoga yadi local storage main koi value hai to if block chlega phir background color bhi change kareyga
+//or input color box ki value bhi set kar dega same color
 
 const checkcolorandget = ()=>{
     const getbackgroundcolor = localStorage.getItem("setbackgroundcolor");
