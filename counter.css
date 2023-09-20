@@ -1,0 +1,92 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.body {width: 100vw;
+    height: 100vh;
+    background: rgb(93, 187, 224);
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerbody{
+    background-color: rgba(194, 226, 252, 0.356);
+    border-radius: 7px;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   padding: 20px;
+}
+
+.count{
+    font-size: 5vw;
+    color: rgb(5, 72, 134);
+}
+
+.h1{
+    padding: 20px;
+    font-size: 8vw;
+    color: green;
+}
+
+.incdec button{
+    margin: 10px;
+    font-size: 4vh;
+    padding: 5px;
+    border: none;
+    border-radius: 7px;
+    border: 2px solid rgb(73, 73, 73);
+}
+
+.incdec button:hover{
+    border:2px solid rgb(63, 63, 238);
+}
+
+
+@media (max-width:600px) {
+    .innerbody{
+        background-color: rgba(194, 226, 252, 0.356);
+        border-radius: 7px;
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+       padding: 20px;
+    }
+
+    .count{
+        font-size: 5vh;
+        color: rgb(5, 72, 134);
+    }
+    
+    .h1{
+        padding: 20px;
+        font-size: 8vh;
+        color: green;
+    }
+
+    .incdec{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .incdec button{
+        margin: 10px;
+        font-size: 3vh;
+        padding: 5px;
+        border: none;
+        border-radius: 7px;
+        border: 2px solid rgb(73, 73, 73);
+    }
+    
+}
