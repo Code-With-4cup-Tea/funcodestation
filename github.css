@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.searchbox{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+   
+}
+
+.search{
+    display: flex;
+    width: 50vw;
+   
+   
+}
+
+.searchbox h1{
+    font-size: 3vw;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 5vh;
+
+}
+
+.search input{
+  width: 90vw;
+  height: 5vh;
+  padding-left: 10px;
+  
+}
+.search input:focus-visible{
+    outline: 1px solid purple;
+    
+  }
+
+.search button{
+   width: 10vw;
+   height: 5.5vh;
+   border: none;
+   background-color: rgb(230, 123, 2);
+   color: white;
+   font-weight: 600;
+   cursor: pointer;
+   padding: 5px;
+
+}
+
+.search button:hover{
+    background-color: rgb(236, 78, 4);
+    color: black;
+}
+
+.search button:active{
+    background-color: rgb(250, 165, 95);
+    color: black;
+}
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    /* width: 50vw; */
+    max-width: 60vw;
+    padding: 20px;
+   background-color: rgba(255, 255, 255, 0.692);
+   border: 2px solid rgb(248, 248, 118);
+   
+    margin-top: 50px;
+}
+
+.card:hover{
+    transform: rotate(-5deg);
+    transition: 0.5s ease-in;
+}
+
+
+
+.top{
+    display:  flex;
+    width: 50vw;
+   
+    justify-content:space-between;
+}
+
+.img{
+    display: flex;
+}
+
+.img img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    border: 2px solid rgb(253, 237, 9);
+}
+
+.imgdetail{
+    margin-top: 20px;
+    margin-left: 10px;
+   
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: gray;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+.about{
+    margin-top: 10px;
+}
+
+.follwunfollow{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(8rem,1fr));
+    margin-top: 10px;
+   
+    
+    
+}
+
+
+.hide{
+    display: none;
+}
