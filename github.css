@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
    
 
 }
@@ -20,12 +21,13 @@
     align-items: center;
     flex-direction: column;
     width: 50vw;
+   background-color: red;
    
 }
 
 .search{
     display: flex;
-    width: 50vw;
+    max-width: 50vw;
    
    
 }

@@ -35,7 +35,7 @@ const profile = async(inputvalue)=>{
 
 
 
-        console.log("data",data);
+       
     } catch(error){
     console.log({error})
     }
@@ -43,12 +43,14 @@ const profile = async(inputvalue)=>{
 
 
 const inputs = ()=>{
+    
     if(toggle){
         card.classList.add("hide")
     }else{
+       
         card.classList.remove("hide")
         var inputvalue = input.value;
-    console.log(inputvalue)
+    
     return profile(inputvalue);
     }
     
@@ -57,4 +59,4 @@ const inputs = ()=>{
 }
 
 button.addEventListener("click",inputs);
-console.log("input call hoga")
+
