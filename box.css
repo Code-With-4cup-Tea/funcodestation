@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.box{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.container{
+    height: 50%;
+    width: 50%;
+    background-color: gray;
+    margin-left: 2vw;
+    display: flex;
+   position: relative;
+    justify-content: center;
+    
+}
+
+.container input{
+    width: 60%;
+    height: 30px;
+}
