@@ -2,7 +2,7 @@ const input = document.querySelector(".searchinput");
 const button = document.querySelector(".searchbutton");
 const card = document.querySelector(".card");
 const image = document.querySelector(".image");
-console.log(image.src);
+// console.log(image.src);
 const login = document.querySelector(".login");
 const names = document.querySelector(".name");
 const url = document.querySelector(".url");
@@ -32,7 +32,7 @@ const profile = async(inputvalue)=>{
         follower.innerHTML=data.followers;
         following.innerHTML=data.following;
         public_repos.innerHTML=data.public_repos;
-        Image.src=`${data.avatar_url}`;
+        Image.src=`"${data.avatar_url}"`;
     
 
 
