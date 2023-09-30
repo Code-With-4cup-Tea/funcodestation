@@ -76,13 +76,22 @@ h3 {
   background-color: white;
   color: black;
   display: flex;
+  flex-direction: column;
 }
+
 .transaction .left {
   padding: 7px;
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.content{
+  display: flex;
+}
+.lower{
+  padding:10px
 }
 
 .status {
@@ -159,6 +168,12 @@ form input:focus-visible {
 #expBtn {
   background-color: var(--red);
 }
+
+.hide{
+  display: none;
+}
+
+
 
 @media (max-width: 500px) {
   .box {
