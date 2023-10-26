@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toolbox_container{
+    background-color: #34495e;
+    height: 5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 3rem;
+  padding-left: 3rem;
+  border-bottom: 5px solid #2d3436;
+   
+   
+}
+.priorlevel{
+    height: 3rem;
+    width:16rem;
+    background-color: #95a5a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    border-radius: 5px;
+    border: 2px solid #2d3436;
+    
+}
+.colors{
+    height: 2rem;
+    width: 3rem;
+    background-color: rgb(228, 135, 135);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color:white;
+    font-weight: 700;
+}
+
+
+
+.actionoption{
+    height: 3rem;
+    width:8rem;
+    background-color: #95a5a6;
+    border: 2px solid #2d3436;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+
+.addbtn{
+    font-size:2rem;
+    cursor: pointer;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+    
+   
+}
+
+.addbtn:hover{
+    font-size: 2.5rem;
+    transition: all ease-in-out;
+
+
+}
+
+.removebtn{
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+.removebtn:hover{
+    font-size:2rem;
+    
+    
+}
+
+.ticketbox{
+    width: 50vw;
+    height: 50vh;
+    background-color: #34495e;
+    border-bottom: 5px solid #2d3436;
+    position: absolute;
+    top: calc( ( 100vh - 50vh ) / 2 );
+    left: calc( ( 100vw - 50vw ) / 2 );
+    display: none;
+    flex-direction: column;
+   
+    padding: 10px;
+    gap: 4px;
+   
+}
+
+.topcolor{
+    background-color: green;
+    height: 5vh;
+    border-radius: 5px;
+}
+
+.innercontainer{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+    
+}
+
+.textarea{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    font-size: 1.5rem;
+    resize: none;
+
+}
+
+.rightside{
+    width: 70%;
+   
+}
+
+.leftside{
+    width: 30%;
+   height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.activeborder{
+    border: 3px solid rgb(8, 8, 8);
+}
+
+/* for ticket container */
+.maincontain{
+    width: 15rem;
+    height: 10rem;
+    background-color: #34495e;
+   
+    
+}
+
+.mainticketcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+}
+
+.ticketcolor{
+    width: 100%;
+    height: 1rem;
+    background-color:rgb(10, 235, 10);
+}
+
+.tastid{
+    width: 100%;
+    height: 2rem;
+   
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: white;
+}
+
+.task{
+    width: 100%;
+    height: calc( 100% - 2rem);
+    color: yellow;
+    padding: 0.4rem;
+   
+}
