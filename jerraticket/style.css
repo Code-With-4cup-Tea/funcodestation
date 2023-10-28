@@ -171,6 +171,7 @@
 .ticketcolor{
     width: 100%;
     height: 1rem;
+    cursor: pointer;
    
    
 }
@@ -189,10 +190,12 @@
 }
 
 .task{
-    width: 100%;
+    width: 80%;
     height: calc( 100% - 2rem);
     color: yellow;
     padding: 0.4rem;
+    margin: auto;
+    outline: none;
    
 }
 
@@ -203,4 +206,5 @@
     font-size: 1.5rem;
     color: wheat;
     cursor: pointer;
+    background-color:#34495e;
 }

@@ -1,12 +1,17 @@
 
 const add = document.querySelector(".addbtn");
 const removebtn = document.querySelector(".removebtn")
-console.log(add);
+// console.log(add);
 const ticketbox = document.querySelector(".ticketbox")
 const mainticketcontainer = document.querySelector(".mainticketcontainer");
 const textarea = document.querySelector(".textarea")
 const priorcolors = document.querySelectorAll(".pcolors")
-console.log(priorcolors)
+// console.log(priorcolors)
+const topcolor = document.querySelectorAll(".colors")
+// console.log(topcolor)
+
+let ticketcolorArr = [];
+console.log(ticketcolorArr);
 
 let colors = ["rgb(2, 39, 2)"," rgb(2, 85, 2)"," rgb(4, 167, 4)"," rgb(10, 235, 10)"];
 let boxprioritycolor = colors[colors.length-1]
@@ -18,6 +23,9 @@ let colorId = colors[id]
 
 let flag = false;
 let removeFlag = false;
+
+let lock = "fa-lock";
+let unlock = "fa-lock-open"
 
 
 add.addEventListener("click",(e)=>{
@@ -73,8 +81,13 @@ const createTicket = (ticketcolor,taskid,task)=>{
     <div class="lock"><i class="fa-solid fa-lock"></i></div>
    </div>
     `
+    ticketcolorArr.push(ticketcolor,taskid,task);
+   
+
     mainticketcontainer.append(ticketcont)
     handleRemovel(ticketcont); //passing ticket which created for remove
+    lockunlock(ticketcont);
+    ticketStripColorChange(ticketcont)
 
 }
 
@@ -97,3 +110,72 @@ function handleRemovel(ticketcont){
     if(removeFlag) ticketcont.remove();
 
 }
+// for lock or unlock
+const lockunlock = (ticketcont)=>{
+     const lockdiv = ticketcont.querySelector(".lock")
+     const falock = lockdiv.querySelector(".fa-lock")
+     const taskarea = ticketcont.querySelector(".task")
+     console.log(taskarea)
+    //  console.log(falock)
+
+    falock.addEventListener("click",()=>{
+        if(falock.classList.contains(lock)){
+            falock.classList.remove(lock);
+            falock.classList.add(unlock)
+            //for editable area
+            taskarea.setAttribute("contenteditable","true")
+        }else{
+            falock.classList.remove(unlock)
+            falock.classList.add(lock)
+            //for disable edit 
+            taskarea.setAttribute("contenteditable","false")
+        }
+       
+       
+    })
+
+}
+
+//for ticket strip color update
+
+const ticketStripColorChange = (ticketcont)=>{
+    const colorstrip = ticketcont.querySelector(".ticketcolor");
+        // colorstrip.style.background="red";
+    // colorstrip.addEventListener("click",()=>{
+    //     colorstrip.s
+    // })
+    // const colorIndex = colors.findIndex((rgb)=>{
+        
+        
+    // })
+    // console.log(colorIndex)
+    
+    colorstrip.addEventListener("click",()=>{
+       id++;
+       const ids = id%colors.length;
+       colorId = colors[ids];
+    //    console.log(colorId)
+       colorstrip.style.background=colorId;
+    })
+}
+
+//for filters demo
+ 
+// const a= [1,2,3,4,5];
+// const number = (a)=>{
+//     return a>2;
+// }
+// const filters = a.filter(number);
+// console.log(filters)
+
+// const rgb = ()=>{
+//     return colors[2]
+// }
+
+// const rgbcolor = colors.filter(rgb);
+// console.log(rgbcolor)
+
+topcolor.forEach((topvalue,index)=>{
+    const topclass = topvalue.classList[0];
+    console.log(topclass)
+})
