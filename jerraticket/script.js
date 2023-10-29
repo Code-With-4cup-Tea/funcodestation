@@ -23,13 +23,22 @@ let colorId = colors[id]
 // console.log(colorId)
 // console.log(id)
 const arr = [];
-
+let array = [];
 
 let flag = false;
 let removeFlag = false;
 
 let lock = "fa-lock";
 let unlock = "fa-lock-open"
+
+//if local storage main koi data hain to usay display karo jab browser open tab chalega
+if (localStorage.getItem("jeera")) {
+    //retrive and display data
+    array = JSON.parse(localStorage.getItem("jeera"));
+    array.forEach((ticketsObj)=>{
+        createTicket(ticketsObj.ticketcolor,ticketsObj.id,ticketsObj.taskid,ticketsObj.task)
+    })
+}
 
 
 add.addEventListener("click",(e)=>{
@@ -69,9 +78,12 @@ priorcolors.forEach((colorvalue,index)=>{
 
 //ticket creator function
 
-const createTicket = (ticketcolor,id,taskid,task)=>{
+function createTicket(ticketcolor,id,taskid,task){
     const ticketcont = document.createElement("div");
-    arr.push(ticketcont);
+    // arr.push(ticketcont);
+    array.push({ticketcolor,id,taskid,task})
+    localStorage.setItem("jeera",JSON.stringify(array))
+    // console.log(array[0]);
     ticketcont.setAttribute("class","ticket-cont");
     ticketcont.innerHTML =`
     <div class="maincontain ">
@@ -85,15 +97,15 @@ const createTicket = (ticketcolor,id,taskid,task)=>{
    </div>
     `
    
-    console.log(arr)
+    // console.log(arr)
 
     
 
     mainticketcontainer.append(ticketcont)
      //passing ticket which created for remove
-     handleRemovel(ticketcont)
-    lockunlock(ticketcont);
-    ticketStripColorChange(ticketcont)
+     handleRemovel(ticketcont,taskid)
+    lockunlock(ticketcont,taskid);
+    ticketStripColorChange(ticketcont,taskid)
 
 }
 
@@ -123,13 +135,23 @@ ticketbox.addEventListener("keydown",(e)=>{
 
 
 
-const handleRemovel= (ticketcont)=>{
+function handleRemovel(ticketcont,taskid){
     // console.log(ticketcont)
     const list =ticketcont.querySelector(".removebtn");
 // console.log(removeFlag)
     // if(removeFlag){
         list.addEventListener("click",()=>{
-            ticketcont.remove();
+            //for data base update in local storage
+            let indexNumss = indexId(taskid);
+            //splice array main se indexnumss index wala remove kar dega , 1 use for one index remove
+            array.splice(indexNumss,1);
+            //now jo array main data baccha usay stiring main convert karo
+            let stringsArr = JSON.stringify(array);
+            //set local storage which remain in storage
+            localStorage.setItem("jeera",stringsArr);
+
+            //below for delete ticker on click on cross
+            ticketcont.remove(); //ui remove
             console.log(removeFlag)
         })
     // } 
@@ -147,7 +169,7 @@ const handleRemovel= (ticketcont)=>{
 
 
 // for lock or unlock
-const lockunlock = (ticketcont)=>{
+function lockunlock(ticketcont,taskid){
      const lockdiv = ticketcont.querySelector(".lock")
      const falock = lockdiv.querySelector(".fa-lock")
      const taskarea = ticketcont.querySelector(".task")
@@ -155,6 +177,7 @@ const lockunlock = (ticketcont)=>{
     //  console.log(falock)
 
     falock.addEventListener("click",()=>{
+        let indexNums = indexId(taskid);
         if(falock.classList.contains(lock)){
             falock.classList.remove(lock);
             falock.classList.add(unlock)
@@ -170,7 +193,9 @@ const lockunlock = (ticketcont)=>{
             // console.log(removeFlag)
             taskarea.setAttribute("contenteditable","false")
         }
-       
+       //for update in storage or textarea
+       array[indexNums].task       =  taskarea.innerText;
+       localStorage.setItem("jeera",JSON.stringify(array))
        
     })
 
@@ -178,7 +203,7 @@ const lockunlock = (ticketcont)=>{
 
 //for ticket strip color update
 
-const ticketStripColorChange = (ticketcont)=>{
+function ticketStripColorChange(ticketcont,taskid){
     const colorstrip = ticketcont.querySelector(".ticketcolor");
         // colorstrip.style.background="red";
     // colorstrip.addEventListener("click",()=>{
@@ -190,6 +215,7 @@ const ticketStripColorChange = (ticketcont)=>{
     // })
     // console.log(colorIndex)
     
+    
     colorstrip.addEventListener("click",()=>{
        id++;
        const ids = id%colors.length;
@@ -199,9 +225,26 @@ const ticketStripColorChange = (ticketcont)=>{
     //    console.log(colorId)
        colorstrip.style.background=colorId;
        colorstrip.innerHTML=ids;
+       let indexNum = indexId(taskid);
+
+       //for update top of ticket color name in storge
+       array[indexNum].ticketcolor = colorId;
+       localStorage.setItem("jeera",JSON.stringify(array))
+
     })
 }
 
+//for geting index after index value we will upate stoage
+
+const indexId = (taskid)=>{
+    let ticketIndex = array.findIndex((ticketObj)=>{
+        return ticketObj.taskid ===taskid
+
+    })
+    console.log("index is " ,ticketIndex)
+  return ticketIndex;
+  
+}
 //for filters demo
  
 // const a= [1,2,3,4,5];
@@ -223,16 +266,16 @@ const ticketStripColorChange = (ticketcont)=>{
 //     console.log(topclass)
 // })
 
-search.addEventListener("input",(e)=>{
+// search.addEventListener("input",(e)=>{
 
-    const val = e.target.value;    
+//     const val = e.target.value;    
 
-    arr.map((it)=>{
-        // const d =it.innerText;
-        console.log(it)
-        it.innerText.toLowerCase().includes(val.toLowerCase()) ?
+//     array.map((it)=>{
+//         // const d =it.innerText;
+//         console.log(it)
+//         it.innerText.toLowerCase().includes(val.toLowerCase()) ?
 
-        it.classList.remove("hide"):it.classList.add("hide")
-    })
+//         it.classList.remove("hide"):it.classList.add("hide")
+//     })
 
-})
+// })
