@@ -35,7 +35,9 @@ let unlock = "fa-lock-open"
 if (localStorage.getItem("jeera")) {
     //retrive and display data
     array = JSON.parse(localStorage.getItem("jeera"));
+    console.log(array)
     array.forEach((ticketsObj)=>{
+        // console.log(ticketsObj)
         createTicket(ticketsObj.ticketcolor,ticketsObj.id,ticketsObj.taskid,ticketsObj.task)
     })
 }
