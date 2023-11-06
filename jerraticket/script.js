@@ -32,15 +32,15 @@ let lock = "fa-lock";
 let unlock = "fa-lock-open"
 
 //if local storage main koi data hain to usay display karo jab browser open tab chalega
-if (localStorage.getItem("jeera")) {
-    //retrive and display data
-    array = JSON.parse(localStorage.getItem("jeera"));
-    console.log(array)
-    array.forEach((ticketsObj)=>{
-        // console.log(ticketsObj)
-        createTicket(ticketsObj.ticketcolor,ticketsObj.id,ticketsObj.taskid,ticketsObj.task)
-    })
-}
+// if (localStorage.getItem("jeera")) {
+//     //retrive and display data
+//     array = JSON.parse(localStorage.getItem("jeera"));
+//     console.log(array)
+//     array.forEach((ticketsObj)=>{
+//         // console.log(ticketsObj)
+//         createTicket(ticketsObj.ticketcolor,ticketsObj.id,ticketsObj.taskid,ticketsObj.task)
+//     })
+// }
 
 
 add.addEventListener("click",(e)=>{
@@ -152,7 +152,7 @@ function handleRemovel(ticketcont,taskid){
             //set local storage which remain in storage
             localStorage.setItem("jeera",stringsArr);
 
-            //below for delete ticker on click on cross
+            //below for delete ticker on click on cross 
             ticketcont.remove(); //ui remove
             console.log(removeFlag)
         })
