@@ -32,15 +32,15 @@ let lock = "fa-lock";
 let unlock = "fa-lock-open"
 
 //if local storage main koi data hain to usay display karo jab browser open tab chalega
-// if (localStorage.getItem("jeera")) {
-//     //retrive and display data
-//     array = JSON.parse(localStorage.getItem("jeera"));
-//     console.log(array)
-//     array.forEach((ticketsObj)=>{
-//         // console.log(ticketsObj)
-//         createTicket(ticketsObj.ticketcolor,ticketsObj.id,ticketsObj.taskid,ticketsObj.task)
-//     })
-// }
+if (localStorage.getItem("jeera")) {
+    //retrive and display data
+    array = JSON.parse(localStorage.getItem("jeera"));
+    console.log(array)
+    array.forEach((ticketsObj)=>{
+        // console.log(ticketsObj)
+        createTicket(ticketsObj.ticketcolor,ticketsObj.id,ticketsObj.task,ticketsObj.taskid)
+    })
+}
 
 
 add.addEventListener("click",(e)=>{
@@ -80,18 +80,19 @@ priorcolors.forEach((colorvalue,index)=>{
 
 //ticket creator function
 
-function createTicket(ticketcolor,id,taskid,task){
+function createTicket(ticketcolor,id,task,taskid){
+    let idk = taskid || uniqid();
     const ticketcont = document.createElement("div");
     // arr.push(ticketcont);
-    array.push({ticketcolor,id,taskid,task})
-    localStorage.setItem("jeera",JSON.stringify(array))
+    
     // console.log(array[0]);
     ticketcont.setAttribute("class","ticket-cont");
     ticketcont.innerHTML =`
     <div class="maincontain ">
     <div class="ticketcolor" style="background-color:${ticketcolor};">${id}</div>
-    <div class="taskid">Task_Id:#${taskid}</div>
+    <div class="taskid">Task_Id:#${idk}</div>
     <div class="task">${task}</div>
+   
     <div class="lock"><i class="fa-solid fa-lock"></i></div>
     <div class="removebtn">
      <i class="fa-solid fa-xmark fa-fade" style="color: #ff0000;"></i>
@@ -104,10 +105,16 @@ function createTicket(ticketcolor,id,taskid,task){
     
 
     mainticketcontainer.append(ticketcont)
+
+    if(! taskid){
+        array.push({ticketcolor,id,task,taskid:idk})
+        console.log("arrauos",array)
+        localStorage.setItem("jeera",JSON.stringify(array))
+    }
      //passing ticket which created for remove
-     handleRemovel(ticketcont,taskid)
-    lockunlock(ticketcont,taskid);
-    ticketStripColorChange(ticketcont,taskid)
+     handleRemovel(ticketcont,idk)
+    lockunlock(ticketcont,idk);
+    ticketStripColorChange(ticketcont,idk)
 
 }
 
@@ -119,7 +126,7 @@ ticketbox.addEventListener("keydown",(e)=>{
      let key = e.key; //this give key which press
 
      if(key === "Shift"){
-        createTicket(colorId,id,uniqid(),textarea.value);
+        createTicket(colorId,id,textarea.value);
         ticketbox.style.display="none"
         flag = false;
         textarea.value="";
